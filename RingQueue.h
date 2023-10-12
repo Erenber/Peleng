@@ -51,22 +51,22 @@ public:
 	RingQueue(const RingQueue<T>&);
 	~RingQueue();
 
-	T& push(T); //добавление элемента в очередь
-	T& front(); //вз€тие первого элемента + помещение его в хвост (т.к. кольцева€ очередь)
-	T& back();  //вз€тие последнего элемента
+	T& push(T); //add an item to the queue
+	T& front(); //taking the first element + putting it in the tail (RING queue)
+	T& back();  //taking the last element
 
-	void swap(RingQueue<T>&); //обмен очередей между собой
+	void swap(RingQueue<T>&);
 
-	Node<T>* begin(); //методы дл€ итератора (но можно использовать и не дл€ него)
+	Node<T>* begin();//methods for the iterator (but can be used not for it)
 	Node<T>* end();
 
-	void pop(); //полностью ”ƒјЋ»“№ первый элемент (без возврата в конец очереди)
-	void clear(); //полна€ очистка очереди
+	void pop(); //completely REMOVE the first element (without returning to the end of the queue)
+	void clear(); //completely clear the queue
 
-	bool isEmpty(); //проверка на пустой список
-	bool isFull(); //проверка на полное заполнение
+	bool isEmpty();
+	bool isFull();
 
-	int getSize(); //текущий размер
+	int getSize(); //get current size
 
 	bool operator==(const RingQueue<T>&) const; 
 	RingQueue<T>& operator=(const RingQueue<T>&);
