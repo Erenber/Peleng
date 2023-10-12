@@ -1,6 +1,6 @@
 #include "RingQueue.h"
 
-//Очередь
+//Queue
 template<typename T>
 RingQueue<T>::RingQueue()
 {
@@ -96,10 +96,11 @@ T& RingQueue<T>::front()
 	if (currentSize == 1)
 		return head->data;
 
-	tail->next = head; //хвост указывает на голову
-	tail = tail->next; //хвост = голова
-	head = head->next; //сдвиг головы
-	tail->next = nullptr; //теперь первый элемент очереди становится в конец
+	//head shifts to the end
+	tail->next = head; 
+	tail = tail->next; 
+	head = head->next; 
+	tail->next = nullptr;
 
 	return tail->data;
 }
@@ -185,7 +186,8 @@ bool RingQueue<T>::operator==(const RingQueue<T>& other) const
 	Node<T>* first = head;
 	Node<T>* second = other.head;
 
-	//подразумевается, что списки одинакового размера, т.к. выше уже была проверка currentSize
+	//lists are the same size,  
+	//"currentSize" check above
 	while (first)
 	{
 		if (first->data != second->data)
@@ -224,7 +226,7 @@ typename RingQueue<T>::Node<T>* RingQueue<T>::end()
 	return nullptr;
 }
 
-//Итератор
+//Iterator
 template<typename T>
 RingQueue<T>::Iterator::Iterator(Node<T>* node) :
 	current(node){};
